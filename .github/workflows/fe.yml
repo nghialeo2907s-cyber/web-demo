@@ -28,5 +28,5 @@ jobs:
           server: ${{ secrets.HOST_FTP }}
           username: ${{ secrets.USER_FTP }}
           password: ${{ secrets.PASS_FTP }}
-          local-dir: frontend/dist
+          local-dir: frontend/dist/
           server-dir: /wwwroot
