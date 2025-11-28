@@ -18,4 +18,4 @@ jobs:
           username: ${{ secrets.USER_FTP }}
           password: ${{ secrets.PASS_FTP }}
           local-dir: backend
-          server-dir: /backend
+          server-dir: /www.minhnghia2907s.somee.com/backend/
