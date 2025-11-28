@@ -30,4 +30,4 @@ jobs:
         username: ${{ secrets.USER_FTP }}
         password: ${{ secrets.PASS_FTP }}
         local-dir: frontend/dist/
-        server-dir: /wwwroot/
+        server-dir: /www.minhnghia2907s.somee.com/
