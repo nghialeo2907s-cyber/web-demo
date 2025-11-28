@@ -2,31 +2,32 @@ name: Deploy Frontend to Somee via FTP
 
 on:
   push:
-    branches:
-      - main
+    branches: [ "main" ]
+  workflow_dispatch:
 
 jobs:
   deploy-fe:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
+    - uses: actions/checkout@v3
 
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: '22'
+    - name: Setup Node
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
 
-      - name: Build Frontend
-        run: |
-          cd frontend
-          npm install
-          npm run build
+    - name: Build Frontend
+      run: |
+        cd frontend
+        npm install
+        npm run build
 
-      - name: Deploy FE via FTP
-        uses: SamKirkland/FTP-Deploy-Action@4.3.0
-        with:
-          server: ${{ secrets.HOST_FTP }}
-          username: ${{ secrets.USER_FTP }}
-          password: ${{ secrets.PASS_FTP }}
-          local-dir: frontend/dist/
-          server-dir: /wwwroot
+    - name: Deploy FE via FTP
+      uses: SamKirkland/FTP-Deploy-Action@4.3.0
+      with:
+        server: ${{ secrets.HOST_FTP }}
+        username: ${{ secrets.USER_FTP }}
+        password: ${{ secrets.PASS_FTP }}
+        local-dir: frontend/dist/
+        server-dir: /wwwroot/
